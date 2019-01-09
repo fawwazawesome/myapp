@@ -1,0 +1,19 @@
+<%= link_to 'Edit', edit_listing_path(@listing) %>
+<strong>Instagaram Entries:</strong>
+
+
+<strong>Owner's Name:</strong>
+<%= @listing.name %>
+<br>
+
+<strong>Country:</strong>
+<%= @listing.country %>
+<br>
+
+
+
+<strong>Instagaram Photos:</strong>
+<br>
+<% @listing.images.each do |image| %>
+  <%= image_tag(image.url) %>
+<% end %>

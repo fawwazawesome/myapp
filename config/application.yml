@@ -10,8 +10,8 @@
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
-GOOGLE_APP_ID: "1040164547033-5v4teb15ujn2dhp4ug9pel7n7su7ck0k.apps.googleusercontent.com"
-GOOGLE_APP_SECRET: "gzwgxY9MMf6Ye9UEQSK_utuq"
+GOOGLE_APP_ID: "765600844913-60j9a4l4ta9bhian4v35jenkpl8db885.apps.googleusercontent.com"
+GOOGLE_APP_SECRET: "7s04QswHrPWdy6Kne5Mkz9qs"
 
 AWS_ACCESS_KEY_ID: "AKIAJ7GJ67NXI43S3NRA" 
 AWS_SECRET_ACCESS_KEY: "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" 

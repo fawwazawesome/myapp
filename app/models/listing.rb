@@ -3,9 +3,6 @@ class Listing < ApplicationRecord
  	has_many :reservations
 
  	mount_uploaders :images, ImageUploader
-
-	scope :name, -> (property) { where name: property }
-	scope :country, -> (country) { where("country ILIKE ?", "%#{country}%") }
-	scope :description, -> (rooms) { where description: description }
+	scope :description, -> (description) { where description: description }
 	
 end

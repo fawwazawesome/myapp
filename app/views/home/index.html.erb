@@ -9,15 +9,14 @@
 
 <p id=”notice”><%= notice %></p>
 
-<h2>Listings </h2>
-<%= link_to 'All Listings', controller: 'listings' %>
-<%= link_to 'New Listings', controller: 'listings' %>
+<h2>Upload Photos to Instagram</h2>
+<%= link_to 'All Entries', controller: 'listings' %>
+<%= link_to 'New Entries', controller: 'listings' %>
 
 
 <h2>Search  </h2>
 <%= form_tag(search_path, method: :get ) do %>
-  Country: <%= text_field_tag :country %><br/>
-  Entries: <%= text_field_tag :description %><br/>
+  Captions: <%= text_field_tag :description %><br/>
   <%= submit_tag 'Search', name: nil %>
 <% end %>
 
@@ -35,3 +34,31 @@
 
 <h1>Cloneinstagaram</h1>
 <p>Back to Square One, where it all began. Share to the world and have fun.</p>
+
+
+    <div id="map"></div>
+    
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+   <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+
+    </style>
+
+
+
+
+
+
+

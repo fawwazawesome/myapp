@@ -47,10 +47,7 @@ class ListingsController < ApplicationController
 
   def search
       @listings = Listing.all
-
-      @listings = @listings.property(params[:property]) if params[:property].present?
-      @listings = @listings.country(params[:country]) if params[:country].present?
-      @listings = @listings.rooms(params[:rooms]) if params[:rooms].present?
+      @listings = @listings.description(params[:description]) if params[:description].present?
       render "index"
   end
 

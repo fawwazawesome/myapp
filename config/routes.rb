@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   get "/search" => "listings#search", as: "search"
   resources :listings 
 
-  root to: 'gif#index'
 
 
 end

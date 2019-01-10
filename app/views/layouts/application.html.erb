@@ -30,4 +30,31 @@
 
 
   </body>
+  <script>
+  $("#entries-search").on("keyup", function(){
+    autocomplete()
+  });
+  function autocomplete(){
+    $.ajax({
+      url: '/entries',
+      type: 'GET',
+      data: $("#entries-search").serialize(), //takes the form data and authenticity toke and converts it into a standard URL
+      contentType: 'application/json; charset=utf-8', // this
+      dataType: 'json', //specify what type of data you're expecting back from the servers
+      error: function() {
+          console.log("Something went wrong");
+      },
+      success: function(data) { //this data is what is being sent back from listings
+        console.log(data)
+        $("#list").html("");
+        data.forEach(function(element) {
+          var option = document.createElement("option");
+          option.value = element;
+          //append option to list
+          $("#list").append(option);
+        });
+      }
+    });
+  }
+</script>
 </html>

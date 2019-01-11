@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 2019_01_10_004436) do
     t.index ["user_id"], name: "index_authentications_on_user_id"
   end
 
+  create_table "entries", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_entries_on_user_id"
+  end
+
   create_table "gifs", force: :cascade do |t|
     t.string "url"
     t.integer "x"

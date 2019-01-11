@@ -1,19 +1,13 @@
 <h1> Create your Instagaram Entry! </h1>
 
-<%= form_for(@listing) do |f| %>
+<%= form_for(@entry) do |f| %>
     
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    
-    <%= f.label :country %>
-    <%= f.text_field :country %>
-
     <%= f.label :description %>
     <%= f.text_field :description %>
 
     
 
- <h2>Upload your Photo to the World:</h2>
+ <h2>Upload your Photo to the Instagaram</h2>
 
 	
 	<%= f.label :images %>

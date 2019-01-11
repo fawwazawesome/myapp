@@ -1,0 +1,21 @@
+<h1>New Instagaram Entry </h1>
+
+<%= link_to 'New Instagaram Entry', new_entry_path %> 
+<table> 
+  <% @entries.each do |entry| %>
+    <tr>
+      <td><strong>Description:</strong><%= entry.description %></td>      
+      <td><strong>Instagaram Images:</strong>
+        <% entry.images.each do |image| %>
+          <%= image_tag(image.url, width: 100) %>
+        <% end %>
+      </td>
+
+      <td><%= link_to 'Show', entry_path(entry) %></td>
+      <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+      <td><%= link_to 'Destroy', entry_path(entry),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

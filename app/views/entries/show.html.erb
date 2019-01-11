@@ -1,0 +1,15 @@
+<%= link_to 'Edit', edit_entry_path(@entry) %>
+<strong>Instagaram Entries:</strong>
+
+
+<strong>Description:</strong>
+<%= @entry.description %>
+<br>
+
+
+
+<strong>Instagaram Photos:</strong>
+<br>
+<% @entry.images.each do |image| %>
+  <%= image_tag(image.url) %>
+<% end %>

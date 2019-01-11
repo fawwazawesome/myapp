@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
   resources :users
-  get "/search" => "listings#search", as: "search"
-  resources :listings 
+  get "/search" => "entries#search", as: "search"
+  resources :entries 
 
 
 

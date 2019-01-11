@@ -77,3 +77,7 @@ gem "omniauth-google-oauth2"
 gem 'carrierwave'
 
 gem 'mini_magick'
+
+gem 'jquery-rails'
+
+gem 'rails_12factor'

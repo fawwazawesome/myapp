@@ -14,45 +14,18 @@
 
 
   <body>
-<h1>Welcome to Instagaram</h1>
-<% if current_user %>
-  Logged in as <%= current_user.email %>.
-  <%= link_to'Log Out', logout_path %>
-<% else %>
-  <%= link_to 'Sign Up', signup_path %> or 
-  <%= link_to 'Log In', login_path %>
-  <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
-<% end %>
+  <%= button_to 'Home', root_path, method: :get %>
+   <div>
+      <% if current_user %>
+        Signed in as <strong><%= current_user.name %></strong>!
+        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+      <% else %>
+        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+      <% end %>
+    </div>
+    
 
-<p id=”notice”><%= notice %></p>
-
-<h2>Upload Photos to Instagram</h2>
-<%= link_to 'All Entries', controller: 'entries' %>
-<%= link_to 'New Entries', controller: 'entries' %>
-
-
-<h2>Search  </h2>
-<%= form_tag(search_path, method: :get ) do %>
-  Captions: <%= text_field_tag :description %><br/>
-  <%= submit_tag 'Search', name: nil %>
-<% end %>
-
-
-<h2>Users</h2>
-<% User.all.each do |user| %>
-  <ul>
-    <li>id: <%= user.id %></li>
-    <li>email:  <%= link_to user.email, user_path(user) %></li>
-  </ul>
-
-<% end %>
-
-
-
-<h1>Cloneinstagaram</h1>
-<p>Back to Square One, where it all began. Share to the world and have fun.</p>
-
-
+  <%= yield %>
 
   </body>
   <script>

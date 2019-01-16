@@ -6,10 +6,9 @@ class EntriesController < ApplicationController
 
 	def show
     	@entry = Entry.find(params[:id])
-
 	end
 
-  	def new
+  def new
   		@entry = Entry.new
 	end
 
@@ -50,7 +49,6 @@ class EntriesController < ApplicationController
       @entries = @entries.description(params[:description]) if params[:description].present?
       render "index"
   end
-
 
   private
   	def entry_params

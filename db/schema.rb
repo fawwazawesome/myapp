@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_13_223344) do
+ActiveRecord::Schema.define(version: 2019_01_17_090326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_01_13_223344) do
     t.string "place"
     t.decimal "latitude"
     t.decimal "longitude"
+    t.json "images"
     t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
@@ -35,6 +36,8 @@ ActiveRecord::Schema.define(version: 2019_01_13_223344) do
     t.string "name"
     t.string "oauth_token"
     t.string "oauth_expires_at"
+    t.string "google_token"
+    t.string "google_refresh_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email"

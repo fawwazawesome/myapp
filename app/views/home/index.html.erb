@@ -3,7 +3,7 @@
   Logged in as <%= current_user.email %>.
   <%= link_to'Log Out', logout_path %>
 <% else %>
-  <%= link_to 'Sign Up', signup_path %> or 
+  <%= link_to 'Sign Up', signup_path %> or
   <%= link_to 'Log In', login_path %> or
 
   <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
@@ -18,7 +18,8 @@
 
 <h2>Search  </h2>
 <%= form_tag(search_path, method: :get ) do %>
-  Captions: <%= text_field_tag :description %><br/>
+  Captions: <%= text_field_tag :description,nil,id:"entries-search" %><br/>
+  <select id="entry"> </select>
   <%= submit_tag 'Search', name: nil %>
 <% end %>
 
@@ -35,4 +36,3 @@
 
 <h1>Cloneinstagaram</h1>
 <p>Back to Square One, where it all began. Share to the world and have fun.</p>
-

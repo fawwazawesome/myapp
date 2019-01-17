@@ -9,7 +9,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :oauth_token
       t.string :oauth_expires_at
-
+      t.string :google_token
+      t.string :google_refresh_token
       t.timestamps
     end
     add_index :users, :name

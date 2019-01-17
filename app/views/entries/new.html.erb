@@ -1,21 +1,21 @@
 <h1> Create your Instagaram Entry! </h1>
 
 <%= form_for(@entry) do |f| %>
-    
+
     <%= f.label :description %>
     <%= f.text_field :description %>
 
-    
 
- <h2>Upload your Photo to the Instagaram</h2>
 
-	
+      <h2>Upload your Photo to the Instagaram</h2>
+
+
 	<%= f.label :images %>
 	<%= f.file_field :images, multiple: true%>
 
 
 	<%= f.submit %>
-	
+
 
 
 <% end %>

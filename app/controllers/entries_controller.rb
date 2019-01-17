@@ -1,6 +1,11 @@
 class EntriesController < ApplicationController
 
 	def index
+        search = params["description"]
+        if search
+          @search_entries = Entry.where("description LIKE ?", "%#{search}%")
+          render json: @search_entries
+        end
     	@entries = Entry.all
 	end
 
@@ -8,7 +13,7 @@ class EntriesController < ApplicationController
     	@entry = Entry.find(params[:id])
 	end
 
-  def new
+    def new
   		@entry = Entry.new
 	end
 
@@ -26,10 +31,10 @@ class EntriesController < ApplicationController
     		render 'new'
   		end
 	end
-	  
+
 	def update
   		@entry = Entry.find(params[:id])
- 
+
   		if @entry.update(entry_params)
     	redirect_to @entry
   		else

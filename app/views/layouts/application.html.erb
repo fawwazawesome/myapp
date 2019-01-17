@@ -9,11 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT6Y916z1FrcjWZ0Z6J12iMJQPkwUEwWk&callback=initMap"
     async defer></script>
-    <title>Google Auth Example App</title>
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-  </head>
   </head>
 
 
@@ -31,15 +27,16 @@
     </div>
 
   </body>
-  
+
   <script>
   $("#entries-search").on("keyup", function(){
     autocomplete()
   });
   function autocomplete(){
+    console.log("AJAX")
     $.ajax({
       url: '/entries',
-      type: 'GET',
+      method: 'GET',
       data: $("#entries-search").serialize(), //takes the form data and authenticity toke and converts it into a standard URL
       contentType: 'application/json; charset=utf-8', // this
       dataType: 'json', //specify what type of data you're expecting back from the servers
@@ -51,20 +48,20 @@
         $("#entry").html("");
         data.forEach(function(element) {
           var option = document.createElement("option");
-          option.value = element;
+          option.value = element.description;
+          option.innerHTML = element.description;
           //append option to list
           $("#entry").append(option);
         });
       }
     });
-  }
-</script>
+  }</script>
 
 
 
 
 <div id="map"></div>
-    
+
 <script>
   var map;
   function initMap() {

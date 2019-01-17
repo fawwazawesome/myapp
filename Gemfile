@@ -84,4 +84,5 @@ gem 'rails_12factor'
 
 gem 'cloudinary'
 
+gem 'shoulda-matchers'
 gem'pusher'

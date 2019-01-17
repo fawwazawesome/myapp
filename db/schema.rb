@@ -15,54 +15,30 @@ ActiveRecord::Schema.define(version: 2019_01_13_223344) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "authentications", force: :cascade do |t|
-    t.string "uid"
-    t.string "token"
-    t.string "provider"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_authentications_on_user_id"
-  end
-
   create_table "entries", force: :cascade do |t|
     t.bigint "user_id"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_entries_on_user_id"
-  end
-
-  create_table "gifs", force: :cascade do |t|
-    t.string "url"
-    t.integer "x"
-    t.integer "y"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "listings", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "name"
-    t.string "country"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.json "images"
     t.string "place"
     t.decimal "latitude"
     t.decimal "longitude"
-    t.index ["user_id"], name: "index_listings_on_user_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
+    t.string "uid"
+    t.string "token"
+    t.string "provider"
+    t.string "name"
+    t.string "oauth_token"
+    t.string "oauth_expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["name"], name: "index_users_on_name"
   end
 
-  add_foreign_key "authentications", "users"
 end

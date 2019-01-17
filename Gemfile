@@ -81,3 +81,7 @@ gem 'mini_magick'
 gem 'jquery-rails'
 
 gem 'rails_12factor'
+
+gem 'cloudinary'
+
+gem'pusher'
